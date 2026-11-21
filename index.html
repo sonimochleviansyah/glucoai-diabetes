@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlucoAI — Skrining Risiko Diabetes</title>
+<meta name="description" content="Prediksi risiko diabetes dengan Logistic Regression yang berjalan langsung di browser.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🩺</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top"><span class="logo">G</span>GlucoAI</a>
+  <nav>
+    <a href="#predict">Prediksi</a>
+    <a href="#performance">Performa</a>
+    <a href="#about">Tentang</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <span class="pill"><i></i> Logistic Regression · berjalan di browser Anda</span>
+    <h1>Cek risiko diabetes,<br>didukung machine learning.</h1>
+    <p class="sub">Masukkan hasil pemeriksaan klinis dan model dilatih dari 768 pasien Pima Indians akan menghitung probabilitas risikonya secara instan. Data Anda tidak dikirim ke server mana pun.</p>
+  </section>
+
+  <section id="predict" class="studio">
+    <form id="form" class="panel" autocomplete="off">
+      <div class="panel-head">
+        <h2>Data pasien</h2>
+        <button type="button" id="example" class="ghost">Isi contoh</button>
+      </div>
+      <div class="grid" id="fields"></div>
+      <p class="hint">Kosongkan kolom yang tidak diketahui. Model akan memakai nilai median dataset.</p>
+      <button type="submit" class="cta">Hitung risiko</button>
+    </form>
+
+    <aside class="panel result" id="result" aria-live="polite">
+      <div class="panel-head"><h2>Hasil analisis</h2><span class="tag mono">model.json</span></div>
+      <div class="empty" id="empty">
+        <div class="ring ghosted"><span>–</span></div>
+        <p>Isi data di samping lalu tekan <b>Hitung risiko</b>.</p>
+      </div>
+      <div class="out" id="out" hidden>
+        <div class="ring" id="ring"><span id="pct">0%</span></div>
+        <h3 id="verdict"></h3>
+        <p id="note"></p>
+        <h4>Faktor yang mempengaruhi</h4>
+        <ul id="factors" class="factors"></ul>
+      </div>
+      <p class="disclaimer">Alat edukasi untuk tugas kuliah. Bukan pengganti diagnosis dokter.</p>
+    </aside>
+  </section>
+
+  <section id="performance" class="block">
+    <h2>Seberapa akurat modelnya?</h2>
+    <p class="lead">Diuji pada 154 pasien yang tidak dipakai saat pelatihan.</p>
+    <div class="metrics" id="metrics"></div>
+    <div class="charts">
+      <figure><img src="assets/confusion_matrix.png" alt="Confusion matrix model" loading="lazy"><figcaption>Confusion matrix</figcaption></figure>
+      <figure><img src="assets/roc_curve.png" alt="Kurva ROC model" loading="lazy"><figcaption>Kurva ROC</figcaption></figure>
+      <figure><img src="assets/coefficients.png" alt="Koefisien fitur" loading="lazy"><figcaption>Koefisien fitur</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="about" class="block about">
+    <h2>Tentang proyek</h2>
+    <div class="cols">
+      <p><b>Data.</b> Pima Indians Diabetes Database dari NIDDK: 768 pasien perempuan berusia 21 tahun ke atas, dengan 8 fitur klinis. Sebanyak 268 pasien berlabel diabetes.</p>
+      <p><b>Model.</b> Logistic Regression dengan imputasi median, standardisasi fitur, dan <span class="mono">class_weight=balanced</span>. Nilai 0 pada glukosa, tekanan darah, ketebalan kulit, insulin, dan BMI dianggap data hilang.</p>
+      <p><b>Batasan.</b> Model dilatih pada satu populasi tertentu sehingga belum tentu akurat untuk kelompok lain. Hasilnya hanya perkiraan statistik.</p>
+    </div>
+  </section>
+</main>
+
+<footer>UTS Pembelajaran Mesin · Dataset: Kaggle / UCI Pima Indians Diabetes</footer>
+<script src="script.js"></script>
+</body>
+</html>

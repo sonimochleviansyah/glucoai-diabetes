@@ -1,0 +1,59 @@
+{
+  "n_rows": 768,
+  "class_counts": {
+    "0": 500,
+    "1": 268
+  },
+  "scenario_A_no_missing_handling": {
+    "accuracy": 0.7337662337662337,
+    "precision": 0.6031746031746031,
+    "recall": 0.7037037037037037,
+    "f1": 0.6495726495726496,
+    "roc_auc": 0.8248148148148148
+  },
+  "scenario_B_median_imputation": {
+    "accuracy": 0.7337662337662337,
+    "precision": 0.6031746031746031,
+    "recall": 0.7037037037037037,
+    "f1": 0.6495726495726496,
+    "roc_auc": 0.8125925925925926
+  },
+  "confusion_matrix": [
+    [
+      75,
+      25
+    ],
+    [
+      16,
+      38
+    ]
+  ],
+  "cv_f1_scores": [
+    0.6504065040650406,
+    0.7222222222222222,
+    0.711864406779661,
+    0.6296296296296297,
+    0.6299212598425197
+  ],
+  "cv_f1_mean": 0.6688088045078147,
+  "coefficients": {
+    "Insulin": -0.04460944307726603,
+    "BloodPressure": -0.014612136655039841,
+    "SkinThickness": 0.013979966107619634,
+    "Age": 0.18643409919786472,
+    "DiabetesPedigreeFunction": 0.2877339763289347,
+    "Pregnancies": 0.37290207573193096,
+    "BMI": 0.7095915806870453,
+    "Glucose": 1.1834826051871232
+  },
+  "feature_medians": {
+    "Pregnancies": 3.0,
+    "Glucose": 117.0,
+    "BloodPressure": 72.0,
+    "SkinThickness": 29.0,
+    "Insulin": 125.0,
+    "BMI": 32.3,
+    "DiabetesPedigreeFunction": 0.3725,
+    "Age": 29.0
+  }
+}
