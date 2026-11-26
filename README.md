@@ -25,10 +25,8 @@ pip install pandas numpy scikit-learn joblib matplotlib
 python train_model.py
 ```
 
-## Deploy ke GitHub Pages
-1. Buat repo public di GitHub, upload seluruh isi folder ini ke root repo.
-2. Settings, Pages, Deploy from a branch, branch `main`, folder `/ (root)`, Save.
-3. Link: https://USERNAME.github.io/NAMA-REPO/
+## Deploy ke Vercel
+Link deploy : https://glucoai-diabetes.vercel.app/#predict
 
 ## Hasil (data uji 20%)
 Akurasi 0,734 · Presisi 0,603 · Recall 0,704 · F1 0,650 · ROC-AUC 0,813 · F1 CV 5-fold 0,669
